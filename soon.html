@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Скоро открытие — Innovative Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ===== СТРАНИЦА "СКОРО ОТКРЫТИЕ" ===== */
+        .soon-page {
+            padding: 40px 0 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .soon-mops-wrapper {
+            position: relative;
+            width: 90vw;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .soon-mops-image {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            animation: mops-sway 4s ease-in-out infinite;
+        }
+
+        .soon-mops-image img {
+            width: 100%;
+            height: auto;
+            max-height: 600px;
+            object-fit: contain;
+        }
+
+        @keyframes mops-sway {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-5px) rotate(1deg); }
+        }
+
+        .soon-mops-fallback {
+            font-size: 260px;
+            line-height: 1;
+        }
+
+        /* Красная лента — ярко-красная */
+        .soon-ribbon {
+            position: absolute;
+            top: 68%;
+            left: 50%;
+            width: 100vw;
+            height: 28px;
+            transform: translate(-50%, -50%);
+            background: #e10600;
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(225, 6, 0, 0.5);
+        }
+
+        /* Бантик — висит ниже ленты, независимо */
+        .soon-ribbon-bow {
+            position: absolute;
+            top: calc(68% + 40px);
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .soon-ribbon-bow img {
+            width: 130px;
+            height: auto;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        /* Заглушка, если нет bow.png */
+        .soon-ribbon-bow-fallback {
+            font-size: 80px;
+            line-height: 1;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+        }
+
+        .soon-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #00b4d8, #c77dff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            padding: 0 20px;
+        }
+
+        .soon-text {
+            font-size: 18px;
+            opacity: 0.85;
+            max-width: 600px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+            padding: 0 20px;
+        }
+
+        .soon-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .soon-mops-wrapper {
+                width: 95vw;
+                margin-bottom: 30px;
+            }
+
+            .soon-mops-image img {
+                max-height: 380px;
+            }
+
+            .soon-ribbon {
+                top: 68%;
+                height: 20px;
+            }
+
+            .soon-ribbon-bow {
+                top: calc(68% + 28px);
+            }
+
+            .soon-ribbon-bow img {
+                width: 90px;
+            }
+
+            .soon-ribbon-bow-fallback {
+                font-size: 56px;
+            }
+
+            .soon-title {
+                font-size: 28px;
+            }
+
+            .soon-text {
+                font-size: 15px;
+            }
+
+            .soon-mops-fallback {
+                font-size: 160px;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" ondragstart="return false;" onselectstart="return false;">
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="header-left">
+                <div class="logo-icon">
+                    <img src="images/logo-ig.png" alt="IG" width="40" height="40">
+                </div>
+                <div class="logo-text">
+                    <h2>Innovative<span>Group</span></h2>
+                    <p>инновационные решения</p>
+                </div>
+            </a>
+            <div class="header-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="companies.html">Наши компании</a></li>
+                    <li><a href="news.html" class="nav-news">Новости</a></li>
+                </ul>
+                <div class="main-menu-btn">
+                    <a href="index.html">В основное меню</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="soon-page">
+        <div class="soon-mops-wrapper">
+            <div class="soon-mops-image">
+                <img src="images/mops.png" alt="Мопс с ножницами"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=\'soon-mops-fallback\'>🐶</div>';">
+            </div>
+            <div class="soon-ribbon"></div>
+            <div class="soon-ribbon-bow">
+                <img src="images/bow.png" alt="Бантик"
+                     onerror="this.style.display='none'; this.parentElement.innerHTML='<span class=\'soon-ribbon-bow-fallback\'>🎀</span>';">
+            </div>
+        </div>
+
+        <h1 class="soon-title">Скоро официальное открытие</h1>
+        <p class="soon-text">
+            Эта страница находится в стадии разработки.<br>
+            Мы уже вовсю пилим её и скоро всё будет готово!<br>
+            Следите за новостями в наших каналах и мессенджерах.
+        </p>
+
+        <div class="soon-buttons">
+            <a href="index.html" class="btn-primary">← Вернуться на главную</a>
+            <a href="https://t.me/innovativeGroupe" class="btn-outline" target="_blank">📱 Telegram-канал</a>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

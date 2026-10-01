@@ -70,11 +70,19 @@ a.header-left {
     object-fit: contain;
 }
 
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
 .logo-text h2 {
     font-size: 20px;
     font-weight: 700;
     color: #ffffff;
-    line-height: 1.2;
+    line-height: 1;
+    margin: 0 0 4px 0;
 }
 
 .logo-text h2 span {
@@ -88,6 +96,8 @@ a.header-left {
     font-size: 10px;
     opacity: 0.7;
     color: #ffffff;
+    line-height: 1;
+    margin: 0;
 }
 
 .header-nav {
@@ -117,6 +127,16 @@ a.header-left {
 .nav-links a.active {
     background: rgba(0, 180, 216, 0.2);
     color: #00b4d8;
+}
+
+.nav-links a.nav-news {
+    background: rgba(231, 76, 60, 0.15);
+    color: #ff6b6b;
+}
+
+.nav-links a.nav-news:hover {
+    background: rgba(231, 76, 60, 0.3);
+    color: #ff6b6b;
 }
 
 .main-menu-btn a {
@@ -394,6 +414,10 @@ h2 {
 
 .company-name {
     font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.company-details {
     margin-bottom: 15px;
 }
 
@@ -938,6 +962,7 @@ footer {
     font-size: 13px;
     font-weight: 600;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 /* ===== НОВОСТИ ===== */
