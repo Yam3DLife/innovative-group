@@ -6,7 +6,149 @@
     <link rel="icon" type="image/png" href="images/favicon.png">
     <title>Innovative Group — инновационные решения</title>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .cyber-hidden-banner {
+            display: flex;
+            justify-content: center;
+            margin: 50px 0 30px;
+            opacity: 0;
+            transform: translateY(40px);
+        }
+        .cyber-hidden-banner.reveal {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .cyber-hidden-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .cyber-secret-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 180, 216, 0.08);
+            border: 1.5px dashed rgba(0, 224, 255, 0.5);
+            border-radius: 16px;
+            padding: 16px 30px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            user-select: none;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 20px rgba(0, 224, 255, 0.25);
+        }
+        .cyber-secret-name:hover {
+            transform: translateY(-2px);
+            border-color: #00e0ff;
+            box-shadow: 0 0 35px rgba(0, 224, 255, 0.5);
+        }
+        .cyber-secret-name::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(110deg, transparent 30%, rgba(0, 224, 255, 0.15) 50%, transparent 70%);
+            background-size: 200% 100%;
+            animation: secret-sweep 3.5s linear infinite;
+        }
+        @keyframes secret-sweep {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        .cyber-secret-text {
+            font-size: 30px;
+            font-weight: 900;
+            letter-spacing: 8px;
+            color: rgba(0, 224, 255, 0.85);
+            position: relative;
+            z-index: 1;
+            text-shadow: 0 0 20px rgba(0, 224, 255, 0.4);
+            animation: secret-flicker 4s ease-in-out infinite;
+        }
+        @keyframes secret-flicker {
+            0%, 100% { opacity: 1; }
+            45% { opacity: 1; }
+            50% { opacity: 0.55; }
+            55% { opacity: 1; }
+            80% { opacity: 0.85; }
+            85% { opacity: 1; }
+        }
+        .cyber-secret-sparkle {
+            position: absolute;
+            font-size: 14px;
+            color: #00e0ff;
+            opacity: 0.9;
+            pointer-events: none;
+            text-shadow: 0 0 10px #00e0ff;
+        }
+        .spark-1 { top: 8%; left: 10%; animation: spark-float 3s ease-in-out infinite; }
+        .spark-2 { top: 70%; left: 20%; animation: spark-float 3.6s ease-in-out infinite 0.5s; }
+        .spark-3 { top: 15%; right: 12%; animation: spark-float 4s ease-in-out infinite 1s; }
+        .spark-4 { top: 75%; right: 18%; animation: spark-float 3.2s ease-in-out infinite 1.5s; }
+        .spark-5 { top: 40%; left: 45%; animation: spark-float 3.8s ease-in-out infinite 0.8s; }
+        @keyframes spark-float {
+            0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
+            50% { transform: translateY(-8px) rotate(180deg) scale(1.25); opacity: 0.4; }
+        }
+        .cyber-new-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #e10600;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 900;
+            letter-spacing: 3px;
+            padding: 11px 20px;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(225, 6, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+            animation: new-pulse 1.8s ease-in-out infinite;
+            transform: rotate(-3deg);
+        }
+        .cyber-new-badge::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.15) 70%, transparent 100%);
+            transform: skewX(-20deg);
+            animation: new-shine 2.6s ease-in-out infinite;
+        }
+        @keyframes new-shine {
+            0% { left: -75%; }
+            60% { left: 130%; }
+            100% { left: 130%; }
+        }
+        @keyframes new-pulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(225, 6, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(225, 6, 0, 0.95), 0 4px 12px rgba(0, 0, 0, 0.4); }
+        }
+        /* Карточка скрытой компании в Наших проектах */
+        .preview-card.secret-company-preview {
+            border-color: rgba(0, 224, 255, 0.4);
+            background: rgba(0, 180, 216, 0.05);
+            position: relative;
+        }
+        .preview-card.secret-company-preview:hover {
+            border-color: #00e0ff;
+            box-shadow: 0 10px 40px rgba(0, 224, 255, 0.25);
+        }
+        @media (max-width: 768px) {
+            .cyber-secret-name { padding: 12px 20px; }
+            .cyber-secret-text { font-size: 20px; letter-spacing: 4px; }
+            .cyber-new-badge { font-size: 12px; letter-spacing: 2px; padding: 8px 14px; }
+        }
+    </style>
 </head>
 <body>
     <header class="main-header">
@@ -58,6 +200,22 @@
             </div>
         </section>
 
+        <section class="cyber-hidden-banner" id="cyberHiddenBanner">
+            <div class="container" style="display:flex;justify-content:center;">
+                <div class="cyber-hidden-row">
+                    <a href="soon.html" class="cyber-secret-name">
+                        <span class="cyber-secret-sparkle spark-1">✦</span>
+                        <span class="cyber-secret-sparkle spark-2">✧</span>
+                        <span class="cyber-secret-sparkle spark-3">✦</span>
+                        <span class="cyber-secret-sparkle spark-4">✧</span>
+                        <span class="cyber-secret-sparkle spark-5">✦</span>
+                        <span class="cyber-secret-text">████████</span>
+                    </a>
+                    <span class="cyber-new-badge">NEW</span>
+                </div>
+            </div>
+        </section>
+
         <section class="about">
             <div class="container">
                 <h2>О компании</h2>
@@ -103,44 +261,51 @@
                 <h2>Наши проекты</h2>
                 <div class="preview-grid">
                     <div class="preview-card">
-                        <div class="preview-icon">
-                            <img src="images/logo-3dlife.png" alt="3D Life ЯМ" width="48" height="48">
-                        </div>
+                        <div class="preview-icon"><img src="images/logo-3dlife.png" alt="3D Life ЯМ" width="48" height="48"></div>
                         <h3>3D Life ЯМ</h3>
                         <p>Профессиональная 3D печать от моделирования до готового изделия.</p>
                         <a href="company-3d-life.html" class="link-arrow">Подробнее →</a>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">
-                            <img src="images/logo-sinaps.png" alt="СИНАПС" width="48" height="48">
-                        </div>
+                        <div class="preview-icon"><img src="images/logo-sinaps.png" alt="СИНАПС" width="48" height="48"></div>
                         <h3>СИНАПС</h3>
                         <p>Настройка компьютерных систем, софта, автоматизация рабочих процессов.</p>
                         <a href="company-sinaps.html" class="link-arrow">Подробнее →</a>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">
-                            <img src="images/logo-chool.png" alt="Chool channel" width="48" height="48">
-                        </div>
+                        <div class="preview-icon"><img src="images/logo-chool.png" alt="Chool channel" width="48" height="48"></div>
                         <h3>Chool channel</h3>
                         <p>Развлекательный телеканал — эфир на VK, Twitch и других площадках.</p>
                         <a href="company-chool.html" class="link-arrow">Подробнее →</a>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">
-                            <img src="images/logo-hotvpn.png" alt="HotVPN" width="48" height="48">
-                        </div>
+                        <div class="preview-icon"><img src="images/logo-hotvpn.png" alt="HotVPN" width="48" height="48"></div>
                         <h3>HotVPN</h3>
                         <p>Надёжный обход белых списков для свободного интернета.</p>
                         <a href="company-hotvpn.html" class="link-arrow">Подробнее →</a>
                     </div>
                     <div class="preview-card">
-                        <div class="preview-icon">
-                            <img src="images/logo-rvrn.png" alt="Р-Воронеж" width="48" height="48">
-                        </div>
+                        <div class="preview-icon"><img src="images/logo-rvrn.png" alt="Р-Воронеж" width="48" height="48"></div>
                         <h3>Р-Воронеж</h3>
                         <p>Независимый новостной Telegram-канал. Реальные новости, оперативно и честно.</p>
                         <a href="company-r-voronezh.html" class="link-arrow">Подробнее →</a>
+                    </div>
+                    <!-- 6. СКРЫТАЯ КОМПАНИЯ (Innovative Cyber Security) -->
+                    <div class="preview-card secret-company-preview">
+                        <div class="preview-icon" style="font-size:48px;line-height:1;">🛡️</div>
+                        <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px;">
+                            <div class="cyber-secret-name" style="padding:10px 18px;">
+                                <span class="cyber-secret-sparkle spark-1">✦</span>
+                                <span class="cyber-secret-sparkle spark-2">✧</span>
+                                <span class="cyber-secret-sparkle spark-3">✦</span>
+                                <span class="cyber-secret-sparkle spark-4">✧</span>
+                                <span class="cyber-secret-sparkle spark-5">✦</span>
+                                <span class="cyber-secret-text" style="font-size:20px;letter-spacing:4px;">████████</span>
+                            </div>
+                            <span class="cyber-new-badge" style="font-size:11px;padding:6px 10px;">NEW</span>
+                        </div>
+                        <p style="opacity:0.6;font-style:italic;color:#00e0ff;">🔒 Информация засекречена до официального запуска</p>
+                        <a href="soon.html" class="link-arrow" style="color:#00e0ff;">Скоро →</a>
                     </div>
                 </div>
             </div>
@@ -172,5 +337,17 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        const hiddenObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('reveal');
+                    hiddenObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2, rootMargin: '0px 0px -60px 0px' });
+        const hiddenBanner = document.getElementById('cyberHiddenBanner');
+        if (hiddenBanner) hiddenObserver.observe(hiddenBanner);
+    </script>
 </body>
 </html>

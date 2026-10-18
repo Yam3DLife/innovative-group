@@ -337,6 +337,9 @@ h2 {
     border-radius: 20px;
     transition: all 0.3s ease;
     border: 1px solid rgba(0, 180, 216, 0.2);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .preview-card:hover {
@@ -364,7 +367,8 @@ h2 {
 
 .link-arrow {
     display: inline-block;
-    margin-top: 20px;
+    margin-top: auto;
+    padding-top: 20px;
     color: #00b4d8;
     text-decoration: none;
     font-weight: 600;
@@ -1101,5 +1105,321 @@ footer {
     .footer-content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+}
+/* =================================================== */
+/* ===== СКРЫТОЕ НАЗВАНИЕ КОМПАНИИ (как в Telegram) ===== */
+/* =================================================== */
+
+.cyber-title-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.cyber-title-row.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cyber-secret-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0, 180, 216, 0.08);
+    border: 1.5px dashed rgba(0, 224, 255, 0.5);
+    border-radius: 16px;
+    padding: 14px 26px;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    user-select: none;
+}
+
+.cyber-secret-name::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        110deg,
+        transparent 30%,
+        rgba(0, 224, 255, 0.15) 50%,
+        transparent 70%
+    );
+    background-size: 200% 100%;
+    animation: secret-sweep 3.5s linear infinite;
+}
+
+@keyframes secret-sweep {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.cyber-secret-text {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 6px;
+    color: rgba(0, 224, 255, 0.85);
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 0 20px rgba(0, 224, 255, 0.4);
+    animation: secret-flicker 4s ease-in-out infinite;
+}
+
+@keyframes secret-flicker {
+    0%, 100% { opacity: 1; }
+    45% { opacity: 1; }
+    50% { opacity: 0.55; }
+    55% { opacity: 1; }
+    80% { opacity: 0.85; }
+    85% { opacity: 1; }
+}
+
+.cyber-secret-sparkle {
+    position: absolute;
+    font-size: 14px;
+    color: #00e0ff;
+    opacity: 0.9;
+    pointer-events: none;
+    text-shadow: 0 0 10px #00e0ff;
+}
+
+.spark-1 { top: 8%; left: 10%; animation: spark-float 3s ease-in-out infinite; }
+.spark-2 { top: 70%; left: 20%; animation: spark-float 3.6s ease-in-out infinite 0.5s; }
+.spark-3 { top: 15%; right: 12%; animation: spark-float 4s ease-in-out infinite 1s; }
+.spark-4 { top: 75%; right: 18%; animation: spark-float 3.2s ease-in-out infinite 1.5s; }
+.spark-5 { top: 40%; left: 45%; animation: spark-float 3.8s ease-in-out infinite 0.8s; }
+
+@keyframes spark-float {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); opacity: 0.9; }
+    50% { transform: translateY(-8px) rotate(180deg) scale(1.25); opacity: 0.4; }
+}
+
+/* ===== КРАСНЫЙ БЕЙДЖ NEW с бегущим блеском ===== */
+.cyber-new-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #e10600;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(225, 6, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4);
+    animation: new-pulse 1.8s ease-in-out infinite;
+    transform: rotate(-3deg);
+}
+
+.cyber-new-badge::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.15) 30%,
+        rgba(255, 255, 255, 0.85) 50%,
+        rgba(255, 255, 255, 0.15) 70%,
+        transparent 100%
+    );
+    transform: skewX(-20deg);
+    animation: new-shine 2.6s ease-in-out infinite;
+}
+
+@keyframes new-shine {
+    0% { left: -75%; }
+    60% { left: 130%; }
+    100% { left: 130%; }
+}
+
+@keyframes new-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(225, 6, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.4); }
+    50% { box-shadow: 0 0 35px rgba(225, 6, 0, 0.95), 0 4px 12px rgba(0, 0, 0, 0.4); }
+}
+
+/* ===== ВЫЕЗД КАРТОЧЕК КИБЕРБЕЗОПАСНОСТИ ===== */
+.cyber-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+    margin-bottom: 40px;
+}
+
+.cyber-card {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 180, 216, 0.25);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+}
+
+.cyber-card.reveal {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                border-color 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+}
+
+.cyber-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, #00e0ff, #c77dff);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.cyber-card:hover {
+    transform: translateY(-8px) !important;
+    border-color: #00e0ff;
+    box-shadow: 0 20px 40px rgba(0, 180, 216, 0.25);
+    background: rgba(0, 180, 216, 0.08);
+}
+
+.cyber-card:hover::before {
+    transform: scaleX(1);
+}
+
+.cyber-card-icon {
+    font-size: 42px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.cyber-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #00e0ff;
+}
+
+.cyber-card p {
+    font-size: 14.5px;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* ===== ПОЛОСА С ВЫЕЗДОМ ===== */
+.cyber-strip {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 25px 30px;
+    background: linear-gradient(135deg, rgba(0, 180, 216, 0.12), rgba(199, 125, 255, 0.12));
+    border: 1px solid rgba(0, 180, 216, 0.3);
+    border-radius: 20px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.cyber-strip.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cyber-strip-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.cyber-strip.reveal .cyber-strip-item {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cyber-strip.reveal .cyber-strip-item:nth-child(1) { transition-delay: 0.1s; }
+.cyber-strip.reveal .cyber-strip-item:nth-child(2) { transition-delay: 0.2s; }
+.cyber-strip.reveal .cyber-strip-item:nth-child(3) { transition-delay: 0.3s; }
+.cyber-strip.reveal .cyber-strip-item:nth-child(4) { transition-delay: 0.4s; }
+.cyber-strip.reveal .cyber-strip-item:nth-child(5) { transition-delay: 0.5s; }
+
+.cyber-strip-item .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #00e0ff;
+    box-shadow: 0 0 12px #00e0ff;
+    animation: pulse-dot 1.8s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* ===== ЗАГОЛОВОК И ПОДЗАГОЛОВОК — ВЫЕЗД ===== */
+.cyber-title,
+.cyber-subtitle {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+.cyber-title.reveal,
+.cyber-subtitle.reveal {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+    .cyber-secret-name {
+        padding: 10px 18px;
+    }
+
+    .cyber-secret-text {
+        font-size: 20px;
+        letter-spacing: 3px;
+    }
+
+    .cyber-new-badge {
+        font-size: 12px;
+        letter-spacing: 2px;
+        padding: 8px 14px;
+    }
+
+    .cyber-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .cyber-strip {
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .cyber-strip-item {
+        font-size: 13px;
     }
 }

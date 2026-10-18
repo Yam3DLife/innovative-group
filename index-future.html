@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Innovative Group — инновационные решения</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        .cyber-block {
+            padding: 60px 0 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-block::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 180, 216, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+        .cyber-block::after {
+            content: "";
+            position: absolute;
+            bottom: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(199, 125, 255, 0.15), transparent 70%);
+            pointer-events: none;
+        }
+        .cyber-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.25), rgba(199, 125, 255, 0.25));
+            border: 1px solid rgba(0, 180, 216, 0.5);
+            color: #00e0ff;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            animation: pulse-badge 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 0 rgba(0, 180, 216, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(0, 180, 216, 0.7); }
+        }
+        .cyber-title {
+            font-size: 72px;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 25px;
+            background: linear-gradient(135deg, #00e0ff 0%, #00b4d8 30%, #c77dff 70%, #7b2cbf 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 60px rgba(0, 180, 216, 0.3);
+        }
+        .cyber-title span {
+            display: block;
+            background: linear-gradient(135deg, #ffffff 0%, #b8d4ff 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-size: 44px;
+            letter-spacing: 0;
+            margin-top: 8px;
+        }
+        .cyber-subtitle {
+            font-size: 20px;
+            opacity: 0.85;
+            max-width: 700px;
+            margin-bottom: 40px;
+            line-height: 1.7;
+        }
+        .cyber-subtitle strong {
+            color: #00e0ff;
+            font-weight: 700;
+        }
+        .cyber-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+            margin-bottom: 40px;
+        }
+        .cyber-card {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 180, 216, 0.25);
+            border-radius: 20px;
+            padding: 28px 24px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .cyber-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #00e0ff, #c77dff);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+        .cyber-card:hover {
+            transform: translateY(-8px);
+            border-color: #00e0ff;
+            box-shadow: 0 20px 40px rgba(0, 180, 216, 0.25);
+            background: rgba(0, 180, 216, 0.08);
+        }
+        .cyber-card:hover::before {
+            transform: scaleX(1);
+        }
+        .cyber-card-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            display: block;
+        }
+        .cyber-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #00e0ff;
+        }
+        .cyber-card p {
+            font-size: 14.5px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+        .cyber-strip {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            padding: 25px 30px;
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.12), rgba(199, 125, 255, 0.12));
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 20px;
+            margin-top: 10px;
+        }
+        .cyber-strip-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+        .cyber-strip-item .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #00e0ff;
+            box-shadow: 0 0 12px #00e0ff;
+            animation: pulse-dot 1.8s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+        .cyber-actions {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+        .cyber-btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #00b4d8, #7b2cbf);
+            padding: 15px 34px;
+            border-radius: 40px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 180, 216, 0.35);
+        }
+        .cyber-btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 180, 216, 0.5);
+        }
+        .cyber-btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            border: 2px solid #00e0ff;
+            padding: 13px 30px;
+            border-radius: 40px;
+            color: #00e0ff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        .cyber-btn-outline:hover {
+            background: #00e0ff;
+            color: #0a0e2a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 224, 255, 0.4);
+        }
+        .cyber-new-badge-sm {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #e10600;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            padding: 5px 10px;
+            border-radius: 8px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(225, 6, 0, 0.6);
+            animation: new-pulse-sm 1.8s ease-in-out infinite;
+            transform: rotate(-3deg);
+            z-index: 2;
+        }
+        .cyber-new-badge-sm::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 60%;
+            height: 100%;
+            background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.15) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.15) 70%, transparent 100%);
+            transform: skewX(-20deg);
+            animation: new-shine 2.6s ease-in-out infinite;
+        }
+        @keyframes new-shine {
+            0% { left: -75%; }
+            60% { left: 130%; }
+            100% { left: 130%; }
+        }
+        @keyframes new-pulse-sm {
+            0%, 100% { box-shadow: 0 0 15px rgba(225, 6, 0, 0.6); }
+            50% { box-shadow: 0 0 25px rgba(225, 6, 0, 0.95); }
+        }
+        .preview-card.featured-card {
+            border: 2px solid transparent;
+            background:
+                linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05)) padding-box,
+                linear-gradient(135deg, #00e0ff, #c77dff, #00e0ff) border-box;
+            background-size: 100% 100%, 300% 300%;
+            animation: featured-border 4s linear infinite;
+            position: relative;
+            box-shadow: 0 0 25px rgba(0, 224, 255, 0.3), 0 0 50px rgba(199, 125, 255, 0.15);
+        }
+        @keyframes featured-border {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 300% 300%; }
+        }
+        .preview-card.featured-card h3 {
+            background: linear-gradient(135deg, #00e0ff, #c77dff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .featured-icon {
+            font-size: 48px;
+            line-height: 1;
+            filter: drop-shadow(0 0 12px rgba(0, 224, 255, 0.6));
+        }
+        .urgent-news-banner.urgent-cyber {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.25), rgba(199, 125, 255, 0.2));
+            border-color: #00e0ff;
+        }
+        .urgent-news-banner.urgent-cyber:hover {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.4), rgba(199, 125, 255, 0.3));
+        }
+        .urgent-news-banner.urgent-cyber .urgent-badge {
+            background: linear-gradient(135deg, #00b4d8, #7b2cbf);
+        }
+        @media (max-width: 768px) {
+            .cyber-block { padding: 40px 0 20px; }
+            .cyber-title { font-size: 38px; letter-spacing: -1px; }
+            .cyber-title span { font-size: 24px; }
+            .cyber-subtitle { font-size: 16px; }
+            .cyber-badge { font-size: 11px; letter-spacing: 2px; padding: 6px 16px; }
+            .cyber-cards { grid-template-columns: 1fr; }
+            .cyber-strip { gap: 15px; padding: 20px; }
+            .cyber-strip-item { font-size: 13px; }
+            .cyber-btn-primary, .cyber-btn-outline { width: 100%; justify-content: center; }
+            .cyber-new-badge-sm { font-size: 9px; padding: 4px 8px; top: 10px; right: 10px; }
+        }
+        .cyber-title, .cyber-subtitle, .cyber-cards, .cyber-card, .cyber-strip, .cyber-strip-item { opacity: 1 !important; transform: none !important; }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="header-left">
+                <div class="logo-icon"><img src="images/logo-ig.png" alt="IG" width="40" height="40"></div>
+                <div class="logo-text"><h2>Innovative<span>Group</span></h2><p>инновационные решения</p></div>
+            </a>
+            <div class="header-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Главная</a></li>
+                    <li><a href="companies.html">Наши компании</a></li>
+                    <li><a href="news.html" class="nav-news">Новости</a></li>
+                </ul>
+                <div class="main-menu-btn"><a href="index.html">В основное меню</a></div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="urgent-news">
+            <div class="container">
+                <a href="news-cyber-created.html" class="urgent-news-banner urgent-cyber" style="margin-bottom: 15px;">
+                    <span class="urgent-badge">🛡️ НОВОЕ</span>
+                    <span class="urgent-text">Запущена новая компания — Innovative Cyber Security. Ответвление от СИНАПС. Подробнее →</span>
+                </a>
+                <a href="news-hotvpn-resumed.html" class="urgent-news-banner" style="background: linear-gradient(135deg, rgba(46, 204, 113, 0.2), rgba(39, 174, 96, 0.15)); border-color: #2ecc71;">
+                    <span class="urgent-badge" style="background: #2ecc71;">🟢 РАБОТАЕТ</span>
+                    <span class="urgent-text">HotVPN снова в строю! Бот поддержки запущен. Регистрация, выбор тарифа и подключение — через @HotVPN_Support_bot. Подробнее →</span>
+                </a>
+            </div>
+        </section>
+
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Объединяем<br><span class="gradient-text">инновации</span></h1>
+                    <p>Innovative Group — группа компаний, создающих будущее. Мы развиваем проекты в сфере технологий, развлечений и производства.</p>
+                    <a href="companies.html" class="btn-primary">Наши проекты →</a>
+                </div>
+                <div class="hero-graphic"><div class="circle circle-1"></div><div class="circle circle-2"></div><div class="circle circle-3"></div></div>
+            </div>
+        </section>
+
+        <section class="cyber-block">
+            <div class="container">
+                <span class="cyber-badge">🛡️ Innovative Cyber Security</span>
+                <h2 class="cyber-title">
+                    ПЕРВАЯ КОМПАНИЯ<br>
+                    ПО КИБЕРБЕЗОПАСНОСТИ
+                    <span>в составе Innovative Group</span>
+                </h2>
+                <p class="cyber-subtitle">
+                    Мы — <strong>новая компания в группе</strong>, созданная для защиты ваших данных, устройств и бизнеса.
+                    Поддержка 24/7, помощь в любой трудной ситуации, консультации и полное сопровождение.
+                    Там, где другим страшно — мы работаем.
+                </p>
+                <div class="cyber-cards">
+                    <div class="cyber-card"><span class="cyber-card-icon">🛡️</span><h3>Защита данных</h3><p>Полная защита личной информации, паролей, документов и коммерческой тайны от любых угроз.</p></div>
+                    <div class="cyber-card"><span class="cyber-card-icon">🆘</span><h3>Поддержка 24/7</h3><p>Мы на связи круглосуточно. Поможем в любой трудной ситуации — от взлома до подозрительной активности.</p></div>
+                    <div class="cyber-card"><span class="cyber-card-icon">🔍</span><h3>Аудит безопасности</h3><p>Проверим ваши устройства, сайты и аккаунты на уязвимости и дадим план по их устранению.</p></div>
+                    <div class="cyber-card"><span class="cyber-card-icon">🚨</span><h3>Помощь при взломе</h3><p>Восстановим доступ, заблокируем злоумышленников и вернём контроль над вашими аккаунтами.</p></div>
+                </div>
+                <div class="cyber-strip">
+                    <div class="cyber-strip-item"><span class="dot"></span> Анонимно</div>
+                    <div class="cyber-strip-item"><span class="dot"></span> Круглосуточно</div>
+                    <div class="cyber-strip-item"><span class="dot"></span> Конфиденциально</div>
+                    <div class="cyber-strip-item"><span class="dot"></span> Быстро и чётко</div>
+                    <div class="cyber-strip-item"><span class="dot"></span> Работаем по всей России</div>
+                </div>
+                <div class="cyber-actions">
+                    <a href="company-cyber.html" class="cyber-btn-primary">🛡️ Подробнее о компании</a>
+                    <a href="https://t.me/innovativeGroupe" class="cyber-btn-outline" target="_blank" rel="noopener noreferrer">🆘 Получить помощь</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="about">
+            <div class="container">
+                <h2>О компании</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p><strong>Innovative Group</strong> — это динамично развивающаяся группа компаний, основанная в 2023 году. Мы объединяем талантливых специалистов и передовые технологии для создания качественных продуктов и услуг.</p>
+                        <p>Наша миссия — делать инновации доступными. Мы верим, что технологии должны работать на людей, помогая им расти, развиваться и достигать новых высот.</p>
+                        <div class="stats">
+                            <div class="stat"><span class="stat-number">6+</span><span class="stat-label">компаний</span></div>
+                            <div class="stat"><span class="stat-number">2023</span><span class="stat-label">год основания</span></div>
+                            <div class="stat"><span class="stat-number">∞</span><span class="stat-label">возможности</span></div>
+                        </div>
+                    </div>
+                    <div class="about-values">
+                        <div class="value-card"><h3>🚀 Инновации</h3><p>Мы всегда на шаг впереди, внедряя новейшие технологии.</p></div>
+                        <div class="value-card"><h3>💎 Качество</h3><p>Каждый продукт проходит строгий контроль качества.</p></div>
+                        <div class="value-card"><h3>🤝 Надёжность</h3><p>Мы ценим доверие и строим долгосрочные отношения.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="preview-companies">
+            <div class="container">
+                <h2>Наши проекты</h2>
+                <div class="preview-grid">
+                    <div class="preview-card"><div class="preview-icon"><img src="images/logo-3dlife.png" alt="3D Life ЯМ" width="48" height="48"></div><h3>3D Life ЯМ</h3><p>Профессиональная 3D печать от моделирования до готового изделия.</p><a href="company-3d-life.html" class="link-arrow">Подробнее →</a></div>
+                    <div class="preview-card"><div class="preview-icon"><img src="images/logo-sinaps.png" alt="СИНАПС" width="48" height="48"></div><h3>СИНАПС</h3><p>Настройка компьютерных систем, софта, автоматизация рабочих процессов.</p><a href="company-sinaps.html" class="link-arrow">Подробнее →</a></div>
+                    <div class="preview-card"><div class="preview-icon"><img src="images/logo-chool.png" alt="Chool channel" width="48" height="48"></div><h3>Chool channel</h3><p>Развлекательный телеканал — эфир на VK, Twitch и других площадках.</p><a href="company-chool.html" class="link-arrow">Подробнее →</a></div>
+                    <div class="preview-card"><div class="preview-icon"><img src="images/logo-hotvpn.png" alt="HotVPN" width="48" height="48"></div><h3>HotVPN</h3><p>Надёжный обход белых списков для свободного интернета.</p><a href="company-hotvpn.html" class="link-arrow">Подробнее →</a></div>
+                    <div class="preview-card"><div class="preview-icon"><img src="images/logo-rvrn.png" alt="Р-Воронеж" width="48" height="48"></div><h3>Р-Воронеж</h3><p>Независимый новостной Telegram-канал. Реальные новости, оперативно и честно.</p><a href="company-r-voronezh.html" class="link-arrow">Подробнее →</a></div>
+                    <div class="preview-card featured-card">
+                        <span class="cyber-new-badge-sm">NEW</span>
+                        <div class="preview-icon"><span class="featured-icon">🛡️</span></div>
+                        <h3>Innovative Cyber Security</h3>
+                        <p>Первая компания по кибербезопасности в группе. Ответвление от СИНАПС.</p>
+                        <a href="company-cyber.html" class="link-arrow">Подробнее →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo"><h3>Innovative<span>Group</span></h3><p>© 2024-2026 Все права защищены</p></div>
+                <div class="footer-links"><h4>Навигация</h4><ul><li><a href="index.html">Главная</a></li><li><a href="companies.html">Наши компании</a></li><li><a href="news.html">Новости</a></li></ul></div>
+                <div class="footer-contact"><h4>Контакты</h4><p>Email: info@innovative-group.ru</p><p>Telegram: @innovativeGroupe</p></div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
