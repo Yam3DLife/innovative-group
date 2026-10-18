@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <title>Новости — Innovative Group</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .news-full-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .news-full-item {
+            display: flex;
+            gap: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 180, 216, 0.2);
+            cursor: pointer;
+        }
+
+        .news-full-item:hover {
+            transform: translateX(8px);
+            border-color: #00b4d8;
+            box-shadow: 0 10px 30px rgba(0, 180, 216, 0.2);
+        }
+
+        .news-full-item.urgent {
+            border-color: #e74c3c;
+            background: rgba(231, 76, 60, 0.08);
+        }
+
+        .news-full-image {
+            flex-shrink: 0;
+            width: 160px;
+            height: 120px;
+            background: linear-gradient(135deg, #00b4d8, #7b2cbf);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            overflow: hidden;
+        }
+
+        .news-full-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .news-full-content {
+            flex: 1;
+        }
+
+        .news-full-tag {
+            display: inline-block;
+            background: rgba(0, 180, 216, 0.2);
+            color: #00b4d8;
+            padding: 3px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news-full-tag.urgent-tag {
+            background: rgba(231, 76, 60, 0.25);
+            color: #ff6b6b;
+        }
+
+        .news-full-date {
+            font-size: 13px;
+            color: #00b4d8;
+            margin-bottom: 10px;
+        }
+
+        .news-full-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .news-full-excerpt {
+            font-size: 15px;
+            opacity: 0.8;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .news-full-link {
+            color: #00b4d8;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .news-full-link:hover {
+            gap: 12px;
+            color: #c77dff;
+        }
+
+        @media (max-width: 768px) {
+            .news-full-item {
+                flex-direction: column;
+            }
+            .news-full-image {
+                width: 100%;
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="container">
+            <a href="index.html" class="header-left">
+                <div class="logo-icon">
+                    <img src="images/logo-ig.png" alt="IG" width="40" height="40">
+                </div>
+                <div class="logo-text">
+                    <h2>Innovative<span>Group</span></h2>
+                    <p>инновационные решения</p>
+                </div>
+            </a>
+            <div class="header-nav">
+                <ul class="nav-links">
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="companies.html">Наши компании</a></li>
+                    <li><a href="news.html" class="active nav-news">Новости</a></li>
+                </ul>
+                <div class="main-menu-btn">
+                    <a href="index.html">В основное меню</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-header">
+            <div class="container">
+                <h1>📰 Новости Innovative Group</h1>
+                <p>Все события группы компаний в одном месте</p>
+            </div>
+        </section>
+
+        <section class="companies-list">
+            <div class="container">
+                <div class="news-full-grid">
+
+                    <!-- HotVPN возобновил работу -->
+                    <a href="news-hotvpn-resumed.html" class="news-full-item" style="text-decoration: none; color: inherit; border-color: #2ecc71; background: rgba(46, 204, 113, 0.08);">
+                        <div class="news-full-image" style="background: linear-gradient(135deg, #2ecc71, #27ae60);">
+                            <img src="images/logo-hotvpn.png" alt="HotVPN">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag" style="background: rgba(46, 204, 113, 0.25); color: #2ecc71;">🟢 РАБОТАЕТ</span>
+                            <div class="news-full-date">18 октября 2026</div>
+                            <div class="news-full-title">HotVPN снова в строю!</div>
+                            <div class="news-full-excerpt">Работа возобновлена. Запущен бот поддержки: регистрация, выбор тарифа, подключение и помощь. Возможны технические сбои — мы обрабатываем каждую заявку.</div>
+                            <span class="news-full-link">Читать полностью →</span>
+                        </div>
+                    </a>
+
+                    <!-- HotVPN приостановлен -->
+                    <a href="news-hotvpn-paused.html" class="news-full-item urgent" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-hotvpn.png" alt="HotVPN">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag urgent-tag">🟡 ВАЖНО</span>
+                            <div class="news-full-date">13 сентября 2026</div>
+                            <div class="news-full-title">HotVPN временно приостановил работу</div>
+                            <div class="news-full-excerpt">Компания не закрывается. Работа приостановлена из-за блокировок РКН. Мы ищем решение и вернёмся с ещё более качественным сервисом.</div>
+                            <span class="news-full-link">Читать полностью →</span>
+                        </div>
+                    </a>
+
+                    <!-- 3D Life — новые материалы -->
+                    <a href="company-3d-life.html" class="news-full-item" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-3dlife.png" alt="3D Life ЯМ">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag">3D Life ЯМ</span>
+                            <div class="news-full-date">15 мая 2026</div>
+                            <div class="news-full-title">Новые материалы для 3D-печати</div>
+                            <div class="news-full-excerpt">Добавили в ассортимент композитные материалы — нейлон с углеродным волокном, поликарбонат и гибкий TPU.</div>
+                            <span class="news-full-link">Подробнее →</span>
+                        </div>
+                    </a>
+
+                    <!-- 3D Life — скидка -->
+                    <a href="company-3d-life.html" class="news-full-item" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-3dlife.png" alt="3D Life ЯМ">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag">3D Life ЯМ</span>
+                            <div class="news-full-date">1 мая 2026</div>
+                            <div class="news-full-title">Скидка 20% на первую печать</div>
+                            <div class="news-full-excerpt">Для новых клиентов действует специальное предложение — скидка 20% на первый заказ. Успейте воспользоваться!</div>
+                            <span class="news-full-link">Подробнее →</span>
+                        </div>
+                    </a>
+
+                    <!-- Р-Воронеж -->
+                    <a href="company-r-voronezh.html" class="news-full-item" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-rvrn.png" alt="Р-Воронеж">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag">Р-Воронеж</span>
+                            <div class="news-full-date">23 мая 2026</div>
+                            <div class="news-full-title">«Реальный Воронеж» вошёл в Innovative Group</div>
+                            <div class="news-full-excerpt">Независимый новостной Telegram-канал стал частью группы компаний Innovative Group. Открываются новые возможности для развития проекта.</div>
+                            <span class="news-full-link">Подробнее →</span>
+                        </div>
+                    </a>
+
+                    <!-- Chool channel -->
+                    <a href="company-chool.html" class="news-full-item" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-chool.png" alt="Chool channel">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag">Chool channel</span>
+                            <div class="news-full-date">15 апреля 2026</div>
+                            <div class="news-full-title">Chool channel расширяет вещание</div>
+                            <div class="news-full-excerpt">Телеканал продолжает радовать зрителей ярким контентом. Эфир идёт на VK Видео и Twitch.</div>
+                            <span class="news-full-link">Подробнее →</span>
+                        </div>
+                    </a>
+
+                    <!-- СИНАПС -->
+                    <a href="company-sinaps.html" class="news-full-item" style="text-decoration: none; color: inherit;">
+                        <div class="news-full-image">
+                            <img src="images/logo-sinaps.png" alt="СИНАПС">
+                        </div>
+                        <div class="news-full-content">
+                            <span class="news-full-tag">СИНАПС</span>
+                            <div class="news-full-date">15 апреля 2026</div>
+                            <div class="news-full-title">СИНАПС присоединился к Innovative Group</div>
+                            <div class="news-full-excerpt">Центр IT-компетенций официально вошёл в группу компаний. Теперь клиенты получают полный спектр услуг по автоматизации.</div>
+                            <span class="news-full-link">Подробнее →</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>Innovative<span>Group</span></h3>
+                    <p>© 2024-2026 Все права защищены</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="index.html">Главная</a></li>
+                        <li><a href="companies.html">Наши компании</a></li>
+                        <li><a href="news.html">Новости</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Контакты</h4>
+                    <p>Email: info@innovative-group.ru</p>
+                    <p>Telegram: @innovative_group</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
