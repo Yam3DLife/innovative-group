@@ -175,6 +175,7 @@ a.header-left {
 }
 
 .gradient-text {
+    color: #00b4d8; /* запасной цвет */
     background: linear-gradient(135deg, #00b4d8, #c77dff);
     -webkit-background-clip: text;
     background-clip: text;
